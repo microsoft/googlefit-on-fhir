@@ -21,18 +21,18 @@ namespace Microsoft.Health.FitOnFhir.GoogleFit.Mapping
         /// <summary>
         /// A format string that allows the TypeMatchExpression to match a specific DataSource.DataType.Name .
         /// </summary>
-        private const string DataTypeNameMatchFormat = "@dataTypeName == '{0}'";
+        private static readonly CompositeFormat DataTypeNameMatchFormat = CompositeFormat.Parse("@dataTypeName == '{0}'");
 
         /// <summary>
         /// A format string that allows the TypeMatchExpression to match specific components of the DataSource.DataStreamId.
         /// </summary>
-        private const string DataSourceIdMatchFormat = "$.Body.dataSourceId =~ /{0}/";
+        private static readonly CompositeFormat DataSourceIdMatchFormat = CompositeFormat.Parse("$.Body.dataSourceId =~ /{0}/");
 
         /// <summary>
         /// The JSONPath type match expression used to match device content payloads.
         /// *MatchFormat strings will be added to the placeholder.
         /// </summary>
-        private const string TypeMatchFormat = "$..[?({0})]";
+        private static readonly CompositeFormat TypeMatchFormat = CompositeFormat.Parse("$..[?({0})]");
 
         /// <summary>
         /// A mapping between the data type format provided by the DataSource and the property name where the value is stored.
@@ -154,16 +154,16 @@ namespace Microsoft.Health.FitOnFhir.GoogleFit.Mapping
         {
             EnsureArg.IsNotNull(dataSource, nameof(dataSource));
 
-            var stringBuilder = new StringBuilder(string.Format(DataTypeNameMatchFormat, dataSource.DataType.Name));
+            var stringBuilder = new StringBuilder(string.Format(null, DataTypeNameMatchFormat, dataSource.DataType.Name));
             var components = GetDataSourceIdComponents(dataSource, false);
 
             foreach (string component in components)
             {
                 stringBuilder.Append(" && ");
-                stringBuilder.Append(string.Format(DataSourceIdMatchFormat, component));
+                stringBuilder.Append(string.Format(null, DataSourceIdMatchFormat, component));
             }
 
-            return string.Format(TypeMatchFormat, stringBuilder.ToString());
+            return string.Format(null, TypeMatchFormat, stringBuilder.ToString());
         }
 
         private static string GenerateTypeName(DataSource dataSource)
