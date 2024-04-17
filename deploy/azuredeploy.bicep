@@ -324,7 +324,7 @@ resource authorize_basename 'Microsoft.Web/sites@2022-03-01' = {
       cors: {
         allowedOrigins: authorize_allowed_origins
       }
-      netFrameworkVersion: 'v6.0'
+      netFrameworkVersion: 'v8.0'
       use32BitWorkerProcess: false
     }
   }
@@ -390,7 +390,7 @@ resource import_timer_basename 'Microsoft.Web/sites@2022-03-01' = {
     containerSize: 1536
     dailyMemoryTimeQuota: 0
     siteConfig: {
-      netFrameworkVersion: 'v6.0'
+      netFrameworkVersion: 'v8.0'
       use32BitWorkerProcess: false
     }
   }
@@ -446,7 +446,7 @@ resource import_data_basename 'Microsoft.Web/sites@2022-03-01' = {
     containerSize: 1536
     dailyMemoryTimeQuota: 0
     siteConfig: {
-      netFrameworkVersion: 'v6.0'
+      netFrameworkVersion: 'v8.0'
       use32BitWorkerProcess: false
     }
   }
