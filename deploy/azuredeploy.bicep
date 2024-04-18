@@ -123,7 +123,7 @@ resource kv_google_client_secret 'Microsoft.KeyVault/vaults/secrets@2022-07-01' 
   }
 }
 
-resource sa_basename 'Microsoft.Storage/storageAccounts@2022-05-01' = {
+resource sa_basename 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   name: replace('sa-${basename}', '-', '')
   location: location
   kind: 'StorageV2'
@@ -158,7 +158,7 @@ resource sa_basename 'Microsoft.Storage/storageAccounts@2022-05-01' = {
   }
 }
 
-resource sa_basename_default 'Microsoft.Storage/storageAccounts/blobServices@2022-05-01' = {
+resource sa_basename_default 'Microsoft.Storage/storageAccounts/blobServices@2023-01-01' = {
   name: 'default'
   parent: sa_basename
   properties: {
@@ -191,7 +191,7 @@ resource sa_basename_default 'Microsoft.Storage/storageAccounts/blobServices@202
   }
 }
 
-resource sa_basename_default_management_policy 'Microsoft.Storage/storageAccounts/managementPolicies@2022-05-01' = {
+resource sa_basename_default_management_policy 'Microsoft.Storage/storageAccounts/managementPolicies@2023-01-01' = {
   name: 'default'
   parent: sa_basename
   properties: {
@@ -225,23 +225,23 @@ resource sa_basename_default_management_policy 'Microsoft.Storage/storageAccount
   }
 }
 
-resource sa_basename_default_blob_container 'Microsoft.Storage/storageAccounts/blobServices/containers@2022-05-01' = {
+resource sa_basename_default_blob_container 'Microsoft.Storage/storageAccounts/blobServices/containers@2023-01-01' = {
   parent: sa_basename_default
   name: 'authdata'
 }
 
-resource Microsoft_Storage_storageAccounts_fileServices_sa_basename_default 'Microsoft.Storage/storageAccounts/fileServices@2022-05-01' = {
+resource Microsoft_Storage_storageAccounts_fileServices_sa_basename_default 'Microsoft.Storage/storageAccounts/fileServices@2023-01-01' = {
   name: 'default'
   parent: sa_basename
   properties: {}
 }
 
-resource Microsoft_Storage_storageAccounts_queueServices_sa_basename_default 'Microsoft.Storage/storageAccounts/queueServices@2022-05-01' = {
+resource Microsoft_Storage_storageAccounts_queueServices_sa_basename_default 'Microsoft.Storage/storageAccounts/queueServices@2023-01-01' = {
   name: 'default'
   parent: sa_basename
 }
 
-resource sa_basename_default_import_data 'Microsoft.Storage/storageAccounts/queueServices/queues@2022-05-01' = {
+resource sa_basename_default_import_data 'Microsoft.Storage/storageAccounts/queueServices/queues@2023-01-01' = {
   parent: Microsoft_Storage_storageAccounts_queueServices_sa_basename_default
   name: 'import-data'
   properties: {
@@ -249,17 +249,17 @@ resource sa_basename_default_import_data 'Microsoft.Storage/storageAccounts/queu
   }
 }
 
-resource Microsoft_Storage_storageAccounts_tableServices_sa_basename_default 'Microsoft.Storage/storageAccounts/tableServices@2022-05-01' = {
+resource Microsoft_Storage_storageAccounts_tableServices_sa_basename_default 'Microsoft.Storage/storageAccounts/tableServices@2023-01-01' = {
   name: 'default'
   parent: sa_basename
 }
 
-resource sa_basename_default_users 'Microsoft.Storage/storageAccounts/tableServices/tables@2022-05-01' = {
+resource sa_basename_default_users 'Microsoft.Storage/storageAccounts/tableServices/tables@2023-01-01' = {
   parent: Microsoft_Storage_storageAccounts_tableServices_sa_basename_default
   name: 'users'
 }
 
-resource la_basename 'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
+resource la_basename 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   name: 'la-${basename}'
   location: location
   properties: {
@@ -279,7 +279,7 @@ resource ai_basename 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
-resource app_plan_basename 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource app_plan_basename 'Microsoft.Web/serverfarms@2022-09-01' = {
   name: 'app-plan-${basename}'
   location: location
   sku: {
@@ -302,7 +302,7 @@ resource app_plan_basename 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 
-resource authorize_basename 'Microsoft.Web/sites@2022-03-01' = {
+resource authorize_basename 'Microsoft.Web/sites@2022-09-01' = {
   name: 'authorize-${basename}'
   location: location
   kind: 'functionapp'
@@ -336,7 +336,7 @@ resource authorize_basename 'Microsoft.Web/sites@2022-03-01' = {
   ]
 }
 
-resource authorize_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01' = {
+resource authorize_basename_appsettings 'Microsoft.Web/sites/config@2022-09-01' = {
   parent: authorize_basename
   name: 'appsettings'
   properties: {
@@ -364,7 +364,7 @@ resource authorize_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01' 
   }
 }
 
-resource authorize_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
+resource authorize_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-09-01' = {
   parent: authorize_basename
   name: 'web'
   properties: {
@@ -377,7 +377,7 @@ resource authorize_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-01' 
   ]
 }
 
-resource import_timer_basename 'Microsoft.Web/sites@2022-03-01' = {
+resource import_timer_basename 'Microsoft.Web/sites@2022-09-01' = {
   name: 'import-timer-${basename}'
   location: location
   kind: 'functionapp'
@@ -408,7 +408,7 @@ resource import_timer_basename 'Microsoft.Web/sites@2022-03-01' = {
   ]
 }
 
-resource import_timer_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01' = {
+resource import_timer_basename_appsettings 'Microsoft.Web/sites/config@2022-09-01' = {
   parent: import_timer_basename
   name: 'appsettings'
   properties: {
@@ -426,7 +426,7 @@ resource import_timer_basename_appsettings 'Microsoft.Web/sites/config@2022-03-0
   }
 }
 
-resource import_timer_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
+resource import_timer_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-09-01' = {
   parent: import_timer_basename
   name: 'web'
   properties: {
@@ -439,7 +439,7 @@ resource import_timer_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-0
   ]
 }
 
-resource import_data_basename 'Microsoft.Web/sites@2022-03-01' = {
+resource import_data_basename 'Microsoft.Web/sites@2022-09-01' = {
   name: 'import-data-${basename}'
   location: location
   kind: 'functionapp'
@@ -470,7 +470,7 @@ resource import_data_basename 'Microsoft.Web/sites@2022-03-01' = {
   ]
 }
 
-resource import_data_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01' = {
+resource import_data_basename_appsettings 'Microsoft.Web/sites/config@2022-09-01' = {
   parent: import_data_basename
   name: 'appsettings'
   properties: {
@@ -499,7 +499,7 @@ resource import_data_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01
   }
 }
 
-resource import_data_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-01' = {
+resource import_data_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-09-01' = {
   parent: import_data_basename
   name: 'web'
   properties: {
@@ -512,7 +512,7 @@ resource import_data_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-01
   ]
 }
 
-resource en_basename 'Microsoft.EventHub/namespaces@2021-11-01' = {
+resource en_basename 'Microsoft.EventHub/namespaces@2024-01-01' = {
   name: 'en-${basename}'
   location: location
   sku: {
@@ -528,7 +528,7 @@ resource en_basename 'Microsoft.EventHub/namespaces@2021-11-01' = {
   }
 }
 
-resource en_basename_ingest 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
+resource en_basename_ingest 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
   parent: en_basename
   name: 'ingest'
   properties: {
@@ -537,12 +537,12 @@ resource en_basename_ingest 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01'
   }
 }
 
-resource en_basename_ingest_Default 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2021-11-01' = {
+resource en_basename_ingest_Default 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2024-01-01' = {
   parent: en_basename_ingest
   name: '$Default'
 }
 
-resource en_basename_ingest_FunctionSender 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2021-11-01' = {
+resource en_basename_ingest_FunctionSender 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2024-01-01' = {
   parent: en_basename_ingest
   name: 'FunctionSender'
   properties: {
@@ -552,13 +552,13 @@ resource en_basename_ingest_FunctionSender 'Microsoft.EventHub/namespaces/eventh
   }
 }
 
-resource hw_basename 'Microsoft.HealthcareApis/workspaces@2022-06-01' = {
+resource hw_basename 'Microsoft.HealthcareApis/workspaces@2024-03-01' = {
   name: replace('hw-${basename}', '-', '')
   location: location
   properties: {}
 }
 
-resource hw_basename_fs_basename 'Microsoft.HealthcareApis/workspaces/fhirservices@2022-06-01' = {
+resource hw_basename_fs_basename 'Microsoft.HealthcareApis/workspaces/fhirservices@2024-03-01' = {
   name: 'fs-${basename}'
   parent: hw_basename
   location: location
@@ -575,7 +575,7 @@ resource hw_basename_fs_basename 'Microsoft.HealthcareApis/workspaces/fhirservic
   }
 }
 
-resource hw_basename_hi_basename 'Microsoft.HealthcareApis/workspaces/iotconnectors@2022-06-01' = {
+resource hw_basename_hi_basename 'Microsoft.HealthcareApis/workspaces/iotconnectors@2024-03-01' = {
   name: 'hi-${basename}'
   parent: hw_basename
   location: location
@@ -1469,7 +1469,7 @@ resource hw_basename_hi_basename 'Microsoft.HealthcareApis/workspaces/iotconnect
   ]
 }
 
-resource hw_basename_hi_basename_hd_basename 'Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations@2022-06-01' = {
+resource hw_basename_hi_basename_hd_basename 'Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations@2024-03-01' = {
   parent: hw_basename_hi_basename
   name: 'hd-${basename}'
   location: location
