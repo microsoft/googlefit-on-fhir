@@ -328,6 +328,12 @@ resource authorize_basename 'Microsoft.Web/sites@2022-03-01' = {
       use32BitWorkerProcess: false
     }
   }
+  dependsOn: [
+    sa_basename_default_blob_container
+    sa_basename_default_import_data
+    sa_basename_default_users
+    ai_basename
+  ]
 }
 
 resource authorize_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01' = {
@@ -371,14 +377,6 @@ resource authorize_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-01' 
   ]
 }
 
-resource authorize_basic_auth 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2022-09-01' = {
-  parent: authorize_basename
-  name: 'scm'
-  properties: {
-    allow: true
-  }
-}
-
 resource import_timer_basename 'Microsoft.Web/sites@2022-03-01' = {
   name: 'import-timer-${basename}'
   location: location
@@ -402,6 +400,12 @@ resource import_timer_basename 'Microsoft.Web/sites@2022-03-01' = {
       use32BitWorkerProcess: false
     }
   }
+  dependsOn: [
+    sa_basename_default_blob_container
+    sa_basename_default_import_data
+    sa_basename_default_users
+    ai_basename
+  ]
 }
 
 resource import_timer_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01' = {
@@ -435,14 +439,6 @@ resource import_timer_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-0
   ]
 }
 
-resource import_timer_basic_auth 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2022-09-01' = {
-  parent: import_timer_basename
-  name: 'scm'
-  properties: {
-    allow: true
-  }
-}
-
 resource import_data_basename 'Microsoft.Web/sites@2022-03-01' = {
   name: 'import-data-${basename}'
   location: location
@@ -466,6 +462,12 @@ resource import_data_basename 'Microsoft.Web/sites@2022-03-01' = {
       use32BitWorkerProcess: false
     }
   }
+  dependsOn: [
+    sa_basename_default_blob_container
+    sa_basename_default_import_data
+    sa_basename_default_users
+    ai_basename
+  ]
 }
 
 resource import_data_basename_appsettings 'Microsoft.Web/sites/config@2022-03-01' = {
@@ -508,14 +510,6 @@ resource import_data_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-03-01
   dependsOn: [
     import_data_basename_appsettings
   ]
-}
-
-resource import_data_basic_auth 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2022-09-01' = {
-  parent: import_data_basename
-  name: 'scm'
-  properties: {
-    allow: true
-  }
 }
 
 resource en_basename 'Microsoft.EventHub/namespaces@2021-11-01' = {

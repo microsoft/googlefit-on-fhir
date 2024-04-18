@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.26.170.59819",
-      "templateHash": "6381058831390680091"
+      "templateHash": "5978658899018705077"
     }
   },
   "parameters": {
@@ -447,7 +447,11 @@
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', format('app-plan-{0}', parameters('basename')))]"
+        "[resourceId('Microsoft.Insights/components', format('ai-{0}', parameters('basename')))]",
+        "[resourceId('Microsoft.Web/serverfarms', format('app-plan-{0}', parameters('basename')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'authdata')]",
+        "[resourceId('Microsoft.Storage/storageAccounts/queueServices/queues', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'import-data')]",
+        "[resourceId('Microsoft.Storage/storageAccounts/tableServices/tables', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'users')]"
       ]
     },
     {
@@ -502,17 +506,6 @@
       ]
     },
     {
-      "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
-      "apiVersion": "2022-09-01",
-      "name": "[format('{0}/{1}', format('authorize-{0}', parameters('basename')), 'scm')]",
-      "properties": {
-        "allow": true
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', format('authorize-{0}', parameters('basename')))]"
-      ]
-    },
-    {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2022-03-01",
       "name": "[format('import-timer-{0}', parameters('basename'))]",
@@ -538,7 +531,11 @@
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', format('app-plan-{0}', parameters('basename')))]"
+        "[resourceId('Microsoft.Insights/components', format('ai-{0}', parameters('basename')))]",
+        "[resourceId('Microsoft.Web/serverfarms', format('app-plan-{0}', parameters('basename')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'authdata')]",
+        "[resourceId('Microsoft.Storage/storageAccounts/queueServices/queues', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'import-data')]",
+        "[resourceId('Microsoft.Storage/storageAccounts/tableServices/tables', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'users')]"
       ]
     },
     {
@@ -580,17 +577,6 @@
       ]
     },
     {
-      "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
-      "apiVersion": "2022-09-01",
-      "name": "[format('{0}/{1}', format('import-timer-{0}', parameters('basename')), 'scm')]",
-      "properties": {
-        "allow": true
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', format('import-timer-{0}', parameters('basename')))]"
-      ]
-    },
-    {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2022-03-01",
       "name": "[format('import-data-{0}', parameters('basename'))]",
@@ -616,7 +602,11 @@
         }
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', format('app-plan-{0}', parameters('basename')))]"
+        "[resourceId('Microsoft.Insights/components', format('ai-{0}', parameters('basename')))]",
+        "[resourceId('Microsoft.Web/serverfarms', format('app-plan-{0}', parameters('basename')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'authdata')]",
+        "[resourceId('Microsoft.Storage/storageAccounts/queueServices/queues', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'import-data')]",
+        "[resourceId('Microsoft.Storage/storageAccounts/tableServices/tables', replace(format('sa-{0}', parameters('basename')), '-', ''), 'default', 'users')]"
       ]
     },
     {
@@ -670,17 +660,6 @@
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', format('import-data-{0}', parameters('basename')))]",
         "[resourceId('Microsoft.Web/sites/config', format('import-data-{0}', parameters('basename')), 'appsettings')]"
-      ]
-    },
-    {
-      "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
-      "apiVersion": "2022-09-01",
-      "name": "[format('{0}/{1}', format('import-data-{0}', parameters('basename')), 'scm')]",
-      "properties": {
-        "allow": true
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', format('import-data-{0}', parameters('basename')))]"
       ]
     },
     {
