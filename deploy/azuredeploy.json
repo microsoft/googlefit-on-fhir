@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.26.170.59819",
-      "templateHash": "17491875477271803925"
+      "templateHash": "17044942250706499709"
     }
   },
   "parameters": {
@@ -626,7 +626,7 @@
         "AzureConfiguration__BlobServiceUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', replace(format('sa-{0}', parameters('basename')), '-', '')), '2023-01-01').primaryEndpoints.blob]",
         "AzureConfiguration__TableServiceUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', replace(format('sa-{0}', parameters('basename')), '-', '')), '2023-01-01').primaryEndpoints.table]",
         "AzureConfiguration__QueueServiceUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', replace(format('sa-{0}', parameters('basename')), '-', '')), '2023-01-01').primaryEndpoints.queue]",
-        "AzureConfiguration__EventHubFullyQualifiedNamespace": "[split(replace(reference(resourceId('Microsoft.EventHub/namespaces', format('en-{0}', parameters('basename'))), '2024-01-01').serviceBusEndpoint, '//', ''), ':')[1]]",
+        "AzureConfiguration__EventHubFullyQualifiedNamespace": "[split(replace(reference(resourceId('Microsoft.EventHub/namespaces', format('en-{0}', parameters('basename'))), '2021-11-01').serviceBusEndpoint, '//', ''), ':')[1]]",
         "AzureConfiguration__EventHubName": "ingest",
         "AzureConfiguration__VaultUri": "[reference(resourceId('Microsoft.KeyVault/vaults', format('kv-{0}', parameters('basename'))), '2022-07-01').vaultUri]",
         "GoogleFitAuthorizationConfiguration__ClientId": "[parameters('google_client_id')]",
@@ -664,7 +664,7 @@
     },
     {
       "type": "Microsoft.EventHub/namespaces",
-      "apiVersion": "2024-01-01",
+      "apiVersion": "2021-11-01",
       "name": "[format('en-{0}', parameters('basename'))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -681,7 +681,7 @@
     },
     {
       "type": "Microsoft.EventHub/namespaces/eventhubs",
-      "apiVersion": "2024-01-01",
+      "apiVersion": "2021-11-01",
       "name": "[format('{0}/{1}', format('en-{0}', parameters('basename')), 'ingest')]",
       "properties": {
         "messageRetentionInDays": 1,
@@ -693,7 +693,7 @@
     },
     {
       "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
-      "apiVersion": "2024-01-01",
+      "apiVersion": "2021-11-01",
       "name": "[format('{0}/{1}/{2}', format('en-{0}', parameters('basename')), 'ingest', '$Default')]",
       "dependsOn": [
         "[resourceId('Microsoft.EventHub/namespaces/eventhubs', format('en-{0}', parameters('basename')), 'ingest')]"
@@ -701,7 +701,7 @@
     },
     {
       "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
-      "apiVersion": "2024-01-01",
+      "apiVersion": "2021-11-01",
       "name": "[format('{0}/{1}/{2}', format('en-{0}', parameters('basename')), 'ingest', 'FunctionSender')]",
       "properties": {
         "rights": [

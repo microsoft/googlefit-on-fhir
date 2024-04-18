@@ -512,7 +512,7 @@ resource import_data_basename_web 'Microsoft.Web/sites/sourcecontrols@2022-09-01
   ]
 }
 
-resource en_basename 'Microsoft.EventHub/namespaces@2024-01-01' = {
+resource en_basename 'Microsoft.EventHub/namespaces@2021-11-01' = {
   name: 'en-${basename}'
   location: location
   sku: {
@@ -528,7 +528,7 @@ resource en_basename 'Microsoft.EventHub/namespaces@2024-01-01' = {
   }
 }
 
-resource en_basename_ingest 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01' = {
+resource en_basename_ingest 'Microsoft.EventHub/namespaces/eventhubs@2021-11-01' = {
   parent: en_basename
   name: 'ingest'
   properties: {
@@ -537,12 +537,12 @@ resource en_basename_ingest 'Microsoft.EventHub/namespaces/eventhubs@2024-01-01'
   }
 }
 
-resource en_basename_ingest_Default 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2024-01-01' = {
+resource en_basename_ingest_Default 'Microsoft.EventHub/namespaces/eventhubs/consumergroups@2021-11-01' = {
   parent: en_basename_ingest
   name: '$Default'
 }
 
-resource en_basename_ingest_FunctionSender 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2024-01-01' = {
+resource en_basename_ingest_FunctionSender 'Microsoft.EventHub/namespaces/eventhubs/authorizationRules@2021-11-01' = {
   parent: en_basename_ingest
   name: 'FunctionSender'
   properties: {
