@@ -51,10 +51,10 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 :: Deployment
 :: ----------
 
-echo Handling function App deployment with Msbuild16.
+echo Handling function App deployment with Msbuild17.
 
 :: 1. Restore, Build and publish
-call :ExecuteCmd "%MSBUILD_1670_DIR%\MSBuild.exe" /restore "%DEPLOYMENT_SOURCE%\src\Import\FitOnFhir.Import\Microsoft.Health.FitOnFhir.Import.csproj" /p:DeployOnBuild=true /p:configuration=Release /p:publishurl="%DEPLOYMENT_TEMP%" %SCM_BUILD_ARGS%
+call :ExecuteCmd "%MSBUILD_1670_DIR%\MSBuild.exe" /restore "%DEPLOYMENT_SOURCE%\%APPSETTING_PROJECT%" /p:DeployOnBuild=true /p:configuration=Release /p:publishurl="%DEPLOYMENT_TEMP%" %SCM_BUILD_ARGS%
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 2. KuduSync
