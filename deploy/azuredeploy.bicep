@@ -340,7 +340,8 @@ resource authorize_basename_appsettings 'Microsoft.Web/sites/config@2022-09-01' 
   parent: authorize_basename
   name: 'appsettings'
   properties: {
-    MSBUILD_PATH: '%MSBUILD_1670_DIR%/msbuild.exe'
+    WEBSITE_RUN_FROM_PACKAGE: '1'
+    MSBUILD_PATH: '%MSBUILD_1670_DIR%\\msbuild.exe'
     FUNCTIONS_EXTENSION_VERSION: '~4'
     FUNCTIONS_WORKER_RUNTIME: 'dotnet'
     PROJECT: 'src/Authorization/FitOnFhir.Authorization/Microsoft.Health.FitOnFhir.Authorization.csproj'
@@ -413,7 +414,8 @@ resource import_timer_basename_appsettings 'Microsoft.Web/sites/config@2022-09-0
   parent: import_timer_basename
   name: 'appsettings'
   properties: {
-    MSBUILD_PATH: '%MSBUILD_1670_DIR%/msbuild.exe'
+    WEBSITE_RUN_FROM_PACKAGE: '1'
+    MSBUILD_PATH: '%MSBUILD_1670_DIR%\\msbuild.exe'
     FUNCTIONS_EXTENSION_VERSION: '~4'
     FUNCTIONS_WORKER_RUNTIME: 'dotnet'
     PROJECT: 'src/ImportTimerTrigger/FitOnFhir.ImportTimerTrigger/Microsoft.Health.FitOnFhir.ImportTimerTrigger.csproj'
@@ -476,7 +478,8 @@ resource import_data_basename_appsettings 'Microsoft.Web/sites/config@2022-09-01
   parent: import_data_basename
   name: 'appsettings'
   properties: {
-    MSBUILD_PATH: '%MSBUILD_1670_DIR%/msbuild.exe'
+    WEBSITE_RUN_FROM_PACKAGE: '1'
+    MSBUILD_PATH: '%MSBUILD_1670_DIR%\\msbuild.exe'
     FUNCTIONS_EXTENSION_VERSION: '~4'
     FUNCTIONS_WORKER_RUNTIME: 'dotnet'
     PROJECT: 'src/Import/FitOnFhir.Import/Microsoft.Health.FitOnFhir.Import.csproj'
