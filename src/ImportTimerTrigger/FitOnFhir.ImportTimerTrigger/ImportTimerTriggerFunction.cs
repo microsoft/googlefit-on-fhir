@@ -3,6 +3,7 @@
 // Licensed under the MIT License (MIT). See LICENSE in the repo root for license information.
 // -------------------------------------------------------------------------------------------------
 
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.Health.FitOnFhir.Common;
@@ -19,7 +20,7 @@ namespace Microsoft.Health.FitOnFhir.ImportTimerTrigger
             _messageService = messageService;
         }
 
-        [FunctionName("import-timer")]
+        [Function("import-timer")]
         public async Task Run(
             [TimerTrigger("%SCHEDULE%")] TimerInfo myTimer,
             [Queue(Constants.ImportDataQueueName, Connection = "AzureWebJobsStorage")] ICollector<string> queueService,

@@ -4,6 +4,7 @@
 // -------------------------------------------------------------------------------------------------
 
 using EnsureThat;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.Health.FitOnFhir.Common.Services;
@@ -19,7 +20,7 @@ namespace Microsoft.Health.FitOnFhir.Import
             _importerService = EnsureArg.IsNotNull(importerService);
         }
 
-        [FunctionName("import-data")]
+        [Function("import-data")]
         public async Task Run(
             [QueueTrigger("import-data")] string message,
             ILogger log,

@@ -6,6 +6,7 @@
 using EnsureThat;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
@@ -27,7 +28,7 @@ namespace Microsoft.Health.FitOnFhir.Authorization
             _logger = EnsureArg.IsNotNull(logger);
         }
 
-        [FunctionName("api")]
+        [Function("api")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "{p1?}/{p2?}")] HttpRequest req,
             ExecutionContext context,

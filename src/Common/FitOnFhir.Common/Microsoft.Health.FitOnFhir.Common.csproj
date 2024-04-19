@@ -9,7 +9,7 @@
     <PackageReference Include="Azure.Storage.Queues" Version="12.17.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
     <PackageReference Include="Microsoft.Health.Extensions.Fhir.R4" Version="3.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
   </ItemGroup>
   <PropertyGroup>
     <_FunctionsSkipCleanOutput>true</_FunctionsSkipCleanOutput>
