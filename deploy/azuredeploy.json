@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.26.170.59819",
-      "templateHash": "17907773757845883354"
+      "templateHash": "15752432355050142293"
     }
   },
   "parameters": {
@@ -459,7 +459,6 @@
       "apiVersion": "2022-09-01",
       "name": "[format('{0}/{1}', format('authorize-{0}', parameters('basename')), 'appsettings')]",
       "properties": {
-        "WEBSITE_RUN_FROM_PACKAGE": "1",
         "MSBUILD_PATH": "%MSBUILD_1670_DIR%\\msbuild.exe",
         "FUNCTIONS_EXTENSION_VERSION": "~4",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
@@ -545,7 +544,6 @@
       "apiVersion": "2022-09-01",
       "name": "[format('{0}/{1}', format('import-timer-{0}', parameters('basename')), 'appsettings')]",
       "properties": {
-        "WEBSITE_RUN_FROM_PACKAGE": "1",
         "MSBUILD_PATH": "%MSBUILD_1670_DIR%\\msbuild.exe",
         "FUNCTIONS_EXTENSION_VERSION": "~4",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
@@ -618,7 +616,6 @@
       "apiVersion": "2022-09-01",
       "name": "[format('{0}/{1}', format('import-data-{0}', parameters('basename')), 'appsettings')]",
       "properties": {
-        "WEBSITE_RUN_FROM_PACKAGE": "1",
         "MSBUILD_PATH": "%MSBUILD_1670_DIR%\\msbuild.exe",
         "FUNCTIONS_EXTENSION_VERSION": "~4",
         "FUNCTIONS_WORKER_RUNTIME": "dotnet",
