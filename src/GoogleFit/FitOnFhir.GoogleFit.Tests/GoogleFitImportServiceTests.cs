@@ -5,8 +5,9 @@
 
 using Google.Apis.Fitness.v1.Data;
 using Microsoft.Extensions.Logging;
-using Microsoft.Health.Common.Config;
+using Microsoft.Health.FitOnFhir.Common.Config;
 using Microsoft.Health.FitOnFhir.Common.Providers;
+using Microsoft.Health.FitOnFhir.Common.Telemetry;
 using Microsoft.Health.FitOnFhir.Common.Tests.Mocks;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client.Config;
@@ -15,7 +16,6 @@ using Microsoft.Health.FitOnFhir.GoogleFit.Client.Responses;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client.Telemetry;
 using Microsoft.Health.FitOnFhir.GoogleFit.Services;
 using Microsoft.Health.FitOnFhir.GoogleFit.Tests.Mocks;
-using Microsoft.Health.Logging.Telemetry;
 using NSubstitute;
 using NSubstitute.Core;
 using NSubstitute.ExceptionExtensions;

@@ -4,7 +4,7 @@
 // -------------------------------------------------------------------------------------------------
 
 using Azure.Storage.Queues.Models;
-using Microsoft.Health.Common.Handler;
+using Microsoft.Health.FitOnFhir.Common.Handlers;
 
 namespace Microsoft.Health.FitOnFhir.Common.Services
 {

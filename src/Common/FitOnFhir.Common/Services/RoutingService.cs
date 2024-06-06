@@ -7,7 +7,7 @@ using EnsureThat;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Health.Common.Handler;
+using Microsoft.Health.FitOnFhir.Common.Handlers;
 using Microsoft.Health.FitOnFhir.Common.Requests;
 using ExecutionContext = Microsoft.Azure.WebJobs.ExecutionContext;
 

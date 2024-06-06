@@ -11,8 +11,6 @@
     <PackageReference Include="Google.Apis.PeopleService.v1" Version="1.66.0.3093" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Health.Common" Version="3.0.2" />
-    <PackageReference Include="Microsoft.Health.Logging" Version="3.0.2" />
     <PackageReference Include="Microsoft.Identity.Web" Version="2.16.1" />
     <PackageReference Include="SimpleBase" Version="4.0.0" />
   </ItemGroup>

@@ -5,7 +5,7 @@
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Health.Common.Handler;
+using Microsoft.Health.FitOnFhir.Common.Handlers;
 
 namespace Microsoft.Health.FitOnFhir.Common.Tests.Mocks
 {

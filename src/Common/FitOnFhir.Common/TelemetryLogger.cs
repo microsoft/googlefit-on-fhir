@@ -5,8 +5,8 @@
 
 using EnsureThat;
 using Microsoft.ApplicationInsights;
-using Microsoft.Health.Logging.Telemetry;
-using Metric = Microsoft.Health.Common.Telemetry.Metric;
+using Microsoft.Health.FitOnFhir.Common.Telemetry;
+using Metric = Microsoft.Health.FitOnFhir.Common.Telemetry.Metric;
 
 namespace Microsoft.Health.FitOnFhir.Common
 {

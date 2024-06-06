@@ -1,0 +1,41 @@
+﻿// -------------------------------------------------------------------------------------------------
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License (MIT). See LICENSE in the repo root for license information.
+// -------------------------------------------------------------------------------------------------
+
+using EnsureThat;
+using Hl7.Fhir.Model;
+using Microsoft.Health.FitOnFhir.Common.Interfaces;
+using ResourceMetadata = Microsoft.Health.FitOnFhir.Common.Resources.ResourceMetadata;
+
+namespace Microsoft.Health.FitOnFhir.Common.ExtensionMethods
+{
+    public static class ResourceExtensions
+    {
+        /// <summary>
+        /// Performs full deep copy of the resource.
+        /// </summary>
+        /// <typeparam name="TResource">Type of resource to return.</typeparam>
+        /// <param name="resource">Resource to copy.</param>
+        /// <returns>New resource object with the contents of the original.</returns>
+        public static TResource FullCopy<TResource>(this TResource resource)
+            where TResource : class, IDeepCopyable
+        {
+            EnsureArg.IsNotNull(resource, nameof(resource));
+
+            return resource.DeepCopy() as TResource;
+        }
+
+        public static IResourceMetadata ToMetadata(this Resource resource)
+        {
+            EnsureArg.IsNotNull(resource, nameof(resource));
+
+            return new ResourceMetadata
+            {
+                Id = resource.Id,
+                VersionId = resource.VersionId,
+                LastUpdated = resource.Meta?.LastUpdated?.UtcDateTime,
+            };
+        }
+    }
+}

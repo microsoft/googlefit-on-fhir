@@ -6,7 +6,6 @@
 using System.Web;
 using EnsureThat;
 using Microsoft.Extensions.Logging;
-using Microsoft.Health.Extensions.Fhir.Service;
 using Microsoft.Health.FitOnFhir.Common;
 using Microsoft.Health.FitOnFhir.Common.Interfaces;
 using Microsoft.Health.FitOnFhir.Common.Models;

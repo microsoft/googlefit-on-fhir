@@ -6,14 +6,14 @@
 using Azure.Messaging.EventHubs.Producer;
 using EnsureThat;
 using Microsoft.Extensions.Logging;
-using Microsoft.Health.Common.Service;
 using Microsoft.Health.FitOnFhir.Common.Providers;
 using Microsoft.Health.FitOnFhir.Common.Requests;
+using Microsoft.Health.FitOnFhir.Common.Services;
+using Microsoft.Health.FitOnFhir.Common.Telemetry;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client.Config;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client.Models;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client.Responses;
-using Microsoft.Health.Logging.Telemetry;
 
 namespace Microsoft.Health.FitOnFhir.GoogleFit.Services
 {

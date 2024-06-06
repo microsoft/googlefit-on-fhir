@@ -3,7 +3,6 @@
 // Licensed under the MIT License (MIT). See LICENSE in the repo root for license information.
 // -------------------------------------------------------------------------------------------------
 
-using Microsoft.Health.Common.Handler;
 using Microsoft.Health.FitOnFhir.Common.Requests;
 
 namespace Microsoft.Health.FitOnFhir.Common.Handlers

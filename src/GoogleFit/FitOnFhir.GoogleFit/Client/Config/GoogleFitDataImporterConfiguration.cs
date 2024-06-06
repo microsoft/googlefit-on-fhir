@@ -3,7 +3,7 @@
 // Licensed under the MIT License (MIT). See LICENSE in the repo root for license information.
 // -------------------------------------------------------------------------------------------------
 
-using Microsoft.Health.Common.Service;
+using Microsoft.Health.FitOnFhir.Common.Services;
 
 namespace Microsoft.Health.FitOnFhir.GoogleFit.Client.Config
 {

@@ -4,7 +4,7 @@
 // -------------------------------------------------------------------------------------------------
 
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Health.Common.Handler;
+using Microsoft.Health.FitOnFhir.Common.Handlers;
 
 namespace Microsoft.Health.FitOnFhir.Common.ExtensionMethods
 {

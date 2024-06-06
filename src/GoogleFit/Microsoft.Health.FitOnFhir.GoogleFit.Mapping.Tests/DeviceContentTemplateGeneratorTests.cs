@@ -4,7 +4,6 @@
 // -------------------------------------------------------------------------------------------------
 
 using Google.Apis.Fitness.v1.Data;
-using Microsoft.Health.Tests.Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;

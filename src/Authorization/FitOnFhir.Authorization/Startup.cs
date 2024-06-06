@@ -8,12 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Health.Common.DependencyInjection;
-using Microsoft.Health.Extensions.Fhir;
-using Microsoft.Health.Extensions.Fhir.Service;
 using Microsoft.Health.FitOnFhir.Authorization;
 using Microsoft.Health.FitOnFhir.Common;
 using Microsoft.Health.FitOnFhir.Common.Config;
+using Microsoft.Health.FitOnFhir.Common.DependencyInjection;
 using Microsoft.Health.FitOnFhir.Common.ExtensionMethods;
 using Microsoft.Health.FitOnFhir.Common.Handlers;
 using Microsoft.Health.FitOnFhir.Common.Interfaces;
@@ -21,12 +19,12 @@ using Microsoft.Health.FitOnFhir.Common.Providers;
 using Microsoft.Health.FitOnFhir.Common.Repositories;
 using Microsoft.Health.FitOnFhir.Common.Requests;
 using Microsoft.Health.FitOnFhir.Common.Services;
+using Microsoft.Health.FitOnFhir.Common.Telemetry;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client.Config;
 using Microsoft.Health.FitOnFhir.GoogleFit.Client.Handlers;
 using Microsoft.Health.FitOnFhir.GoogleFit.Repositories;
 using Microsoft.Health.FitOnFhir.GoogleFit.Services;
-using Microsoft.Health.Logging.Telemetry;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 

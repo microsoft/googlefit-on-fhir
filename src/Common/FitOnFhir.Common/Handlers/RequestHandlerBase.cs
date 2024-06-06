@@ -4,7 +4,6 @@
 // -------------------------------------------------------------------------------------------------
 
 using Microsoft.AspNetCore.Http;
-using Microsoft.Health.Common.Handler;
 using Microsoft.Health.FitOnFhir.Common.Requests;
 
 namespace Microsoft.Health.FitOnFhir.Common.Handlers
